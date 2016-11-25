@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html ng-app="shopAdmin">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["Title"] - ECommerce</title>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/css/admin-core.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/admin-core.min.css" asp-append-version="true" />
+    </environment>
+    <link href="~/lib/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="~/lib/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="~/lib/summernote/summernote.css" rel="stylesheet" />
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/summernote/summernote.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-ui-router/angular-ui-router.js"></script>
+    <script src="~/lib/angular-animate/angular-animate.js"></script>
+    <script src="~/lib/angular-aria/angular-aria.js"></script>
+    <script src="~/lib/angular-messages/angular-messages.js"></script>
+    <script src="~/lib/angular-material/angular-material.js"></script>
+    <script src="~/lib/angular-smart-table/smart-table.js"></script>
+    <script src="~/lib/ng-file-upload/ng-file-upload.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/lib/angular-summernote/angular-summernote.js"></script>
+
+    <script src="~/admin/admin-app.js"></script>
+    <script src="~/admin/common/common.js"></script>
+    <script src="~/admin/common/summernoteservice.js"></script>
+    <script src="~/admin/common/isolateSubForm.js"></script>
+    <script src="~/admin/dashboard/dashboard.module.js"></script>
+
+    <script src="~/admin/brand/brand.module.js"></script>
+    <script src="~/admin/brand/brand-service.js"></script>
+    <script src="~/admin/brand/brand-list.js"></script>
+    <script src="~/admin/brand/brand-create.js"></script>
+    <script src="~/admin/brand/brand-edit.js"></script>
+
+    <script src="~/admin/category/category.module.js"></script>
+    <script src="~/admin/category/category-service.js"></script>
+    <script src="~/admin/category/category-list.js"></script>
+    <script src="~/admin/category/category-create.js"></script>
+    <script src="~/admin/category/category-edit.js"></script>
+
+    <script src="~/admin/product/product.module.js"></script>
+    <script src="~/admin/product/product-service.js"></script>
+    <script src="~/admin/product/product-list.js"></script>
+    <script src="~/admin/product/product-form.js"></script>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a ui-sref="dashboard" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>E</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>E</b>Commerce</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                @*<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>*@
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active treeview">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="brand"><i class="fa fa-bold"></i> Brands</a></li>
+                            <li><a ui-sref="category"><i class="fa fa-list"></i> Categories</a></li>
+                            <li><a ui-sref="product"><i class="fa fa-tablet"></i> Products</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    @RenderBody()
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2016-2017 <a href="#">ECommerce</a>.</strong> All rights
+            reserved.
+        </footer>
+    </div>
+
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
